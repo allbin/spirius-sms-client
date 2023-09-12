@@ -1,0 +1,36 @@
+{
+  "name": "@allbin/spirius-sms-client",
+  "version": "0.0.1",
+  "description": "Api Client for Spirius SMS Gateway",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint --ext .ts src",
+    "build": "rm -rf lib && tsc",
+    "prepublish": "npm run lint && npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/allbin/spirius-sms-client.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/allbin/spirius-sms-client/issues"
+  },
+  "homepage": "https://github.com/allbin/spirius-sms-client#readme",
+  "dependencies": {
+    "axios": "^1.5.0"
+  },
+  "devDependencies": {
+    "@allbin/eslint-config": "^0.0.11",
+    "@typescript-eslint/eslint-plugin": "^6.7.0",
+    "@typescript-eslint/parser": "^6.7.0",
+    "bun-types": "^1.0.1",
+    "eslint": "^8.49.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-prettier": "^5.0.0",
+    "prettier": "^3.0.3",
+    "typescript": "^5.2.2"
+  }
+}
