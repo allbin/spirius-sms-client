@@ -1,13 +1,13 @@
 {
   "name": "@allbin/spirius-sms-client",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "Api Client for Spirius SMS Gateway",
   "main": "lib/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint --ext .ts src",
     "build": "rm -rf lib && tsc",
-    "prepublish": "npm run lint && npm run build"
+    "prepublishOnly": "npm run lint && npm run build"
   },
   "repository": {
     "type": "git",
