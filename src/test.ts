@@ -20,7 +20,7 @@ const client = SpiriusClient({ user, password, from });
 void (async () => {
   try {
     const response = await client.send([argv[2]], argv[3]);
-    console.log(response.data.numberOfSms);
+    console.log(response.data);
   } catch (e) {
     console.error(e);
     process.exit(1);

@@ -1,6 +1,6 @@
 {
   "name": "@allbin/spirius-sms-client",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Api Client for Spirius SMS Gateway",
   "main": "lib/index.js",
   "scripts": {

@@ -4,6 +4,7 @@ interface SpiriusClientOptions {
   user: string;
   password: string;
   from: string;
+  deliveryReportWebhookUrl?: string;
   dryRun?: boolean;
 }
 
@@ -23,8 +24,15 @@ interface ISpiriusClient {
 }
 
 export const SpiriusClient = (opts: SpiriusClientOptions): ISpiriusClient => ({
-  send: async (recipients, message, from) =>
-    axios.post(
+  send: async (recipients, message, from) => {
+    opts.deliveryReportWebhookUrl
+      ? {
+          deliveryReport: true,
+          dlrCallbackUrl: opts.deliveryReportWebhookUrl,
+        }
+      : {};
+
+    return axios.post(
       `https://rest1.spirius.com/v1/sms/mt/send`,
       {
         message,
@@ -38,6 +46,13 @@ export const SpiriusClient = (opts: SpiriusClientOptions): ISpiriusClient => ({
             `${opts.user}:${opts.password}`,
           ).toString('base64')}`,
         },
+        params: opts.deliveryReportWebhookUrl
+          ? {
+              deliveryReport: true,
+              dlrCallbackUrl: opts.deliveryReportWebhookUrl,
+            }
+          : undefined,
       },
-    ),
+    );
+  },
 });
